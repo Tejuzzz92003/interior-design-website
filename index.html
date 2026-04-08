@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interior Design Studio - Transform Your Space</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-home"></i> AI Design Studio
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Space with AI-Powered Design</h1>
+            <p>Upload your room photo and get instant design suggestions, cost estimates, and book consultations</p>
+            <div class="hero-buttons">
+                <button class="cta-btn primary" onclick="scrollToSection('upload-section')">
+                    <i class="fas fa-upload"></i> Try AI Design Now
+                </button>
+                <button class="cta-btn secondary" onclick="scrollToSection('services')">
+                    View Our Services
+                </button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card">AI Design Magic ✨</div>
+        </div>
+    </section>
+
+    <!-- AI Upload Section -->
+    <section id="upload-section" class="upload-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Room Design Suggestion</h2>
+                <p>Upload your room photo and get instant design recommendations</p>
+            </div>
+            <div class="upload-container">
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Click to upload room photo or drag & drop</p>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                </div>
+                <div class="ai-suggestions" id="aiSuggestions">
+                    <div class="suggestion-card">
+                        <h4>Modern Design</h4>
+                        <div class="color-palette">
+                            <div class="color" style="background: #f0f4f8;"></div>
+                            <div class="color" style="background: #2c3e50;"></div>
+                            <div class="color" style="background: #ecf0f1;"></div>
+                        </div>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>Minimal Design</h4>
+                        <div class="color-palette">
+                            <div class="color" style="background: #ffffff;"></div>
+                            <div class="color" style="background: #f8f9fa;"></div>
+                            <div class="color" style="background: #495057;"></div>
+                        </div>
+                    </div>
+                    <div class="suggestion-card">
+                        <h4>Luxury Design</h4>
+                        <div class="color-palette">
+                            <div class="color" style="background: #1a1a2e;"></div>
+                            <div class="color" style="background: #16213e;"></div>
+                            <div class="color" style="background: #e94560;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Complete interior design solutions powered by AI technology</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Design Consultation</h3>
+                    <p>Get instant design suggestions and 3D visualizations</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Smart Cost Estimator</h3>
+                    <p>Accurate cost calculations based on your requirements</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Easy Booking</h3>
+                    <p>Book consultations with just a few clicks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Estimator -->
+    <section class="cost-estimator">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Cost Estimator</h2>
+                <p>Get instant cost estimates for your interior project</p>
+            </div>
+            <div class="estimator-form">
+                <div class="form-group">
+                    <label>Room Type</label>
+                    <select id="roomType">
+                        <option value="living">Living Room</option>
+                        <option value="kitchen">Kitchen</option>
+                        <option value="bedroom">Bedroom</option>
+                        <option value="2bhk">2BHK</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Room Size (sq ft)</label>
+                    <input type="number" id="roomSize" placeholder="Enter size in sq ft">
+                </div>
+                <div class="form-group">
+                    <label>Budget Range</label>
+                    <select id="budget">
+                        <option value="economy">Economy (₹5-10/sqft)</option>
+                        <option value="standard">Standard (₹10-20/sqft)</option>
+                        <option value="premium">Premium (₹20-40/sqft)</option>
+                        <option value="luxury">Luxury (₹40+/sqft)</option>
+                    </select>
+                </div>
+                <button class="estimate-btn" onclick="calculateCost()">
+                    Calculate Cost <i class="fas fa-calculator"></i>
+                </button>
+                <div class="cost-result" id="costResult"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Portfolio</h2>
+                <p>Explore our stunning interior design projects</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop" alt="Living Room">
+                    <div class="portfolio-overlay">
+                        <h3>Living Room</h3>
+                        <p>Modern Scandinavian Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17b?w=400&h=300&fit=crop" alt="Kitchen">
+                    <div class="portfolio-overlay">
+                        <h3>Kitchen</h3>
+                        <p>Minimalist White Kitchen</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd2dabb60b29?w=400&h=300&fit=crop" alt="Bedroom">
+                    <div class="portfolio-overlay">
+                        <h3>Bedroom</h3>
+                        <p>Luxury Master Bedroom</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">
+            <i class="fas fa-robot"></i>
+            <span>AI Design Assistant</span>
+            <button class="close-chat" onclick="toggleChatbot()">×</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello! I'm your AI Design Assistant. How can I help you today? 🤖
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Ask about services, pricing, or booking...">
+            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Booking Form -->
+    <section id="contact" class="booking-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book Consultation</h2>
+                <p>Schedule your free AI-powered design consultation</p>
+            </div>
+            <form class="booking-form" id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" id="city" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Book Appointment</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AI Interior Design Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
